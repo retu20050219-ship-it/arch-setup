@@ -8,6 +8,6 @@ chmod +x install.sh
 ```
 
 ## 配置展示
-<img src="./imges/1.png" width="500">
+![桌面](./image/1.png)
 
-<img src="./imges/2.png" width="500">
+![终端](./image/2.png)
