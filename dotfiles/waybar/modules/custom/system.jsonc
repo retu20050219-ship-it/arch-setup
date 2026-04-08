@@ -1,0 +1,9 @@
+{
+	"custom/system": {
+		"exec": "uname -r | sed -E 's/-arch[0-9]+-[0-9]+/-arch/'",
+		"interval": 3600,
+		"format": "<span rise='500' size='12000'></span> {}",
+		"tooltip": false,
+		"on-click": "~/.config/waybar/scripts/system.sh"
+	}
+}
