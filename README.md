@@ -11,3 +11,14 @@ chmod +x install.sh
 ![桌面](./image/1.png)
 
 ![终端](./image/2.png)
+
+### 其他配置
+#### 应用起动器
+应用起动器可以使用Aditya Shakya大佬的rofi配置https://github.com/adi1090x/rofi
+
+#### sddm
+sddm的美化使用Keyitdev大佬的配置https://github.com/Keyitdev/sddm-astronaut-theme
+
+#### GRUB
+grub的美化使用Vince大佬的配置https://github.com/vinceliuice/grub2-themes
+
