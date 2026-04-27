@@ -1,0 +1,48 @@
+pkgname=yike-dialy-bin
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="A journaling app for capturing thoughts and discoveries."
+arch=('x86_64')
+url="https://example.com/yike-dialy"
+license=('custom')
+
+provides=("yike-dialy")
+conflicts=("yike-dialy")
+
+source=("yike-dialy-bin-${pkgver}.deb")
+noextract=("yike-dialy-bin-${pkgver}.deb")
+
+sha256sums=('SKIP')
+
+package() {
+    cd "${srcdir}"
+
+    # Extract the .deb archive
+    bsdtar -xf "${source[0]}"
+
+    # Extract application files into the package directory
+    bsdtar -xf data.tar.* -C "${pkgdir}"
+
+    # Create a launcher in /usr/bin
+    install -d "${pkgdir}/usr/bin"
+
+    cat <<EOF > "${pkgdir}/usr/bin/yike-dialy"
+#!/bin/bash
+exec /opt/一刻日记/com.byteof.moment "\$@"
+EOF
+
+    # Make the launcher executable
+    chmod +x "${pkgdir}/usr/bin/yike-dialy"
+
+    # Install desktop entry
+    install -d "${pkgdir}/usr/share/applications"
+
+    cat <<EOF > "${pkgdir}/usr/share/applications/yike-dialy.desktop"
+[Desktop Entry]
+Name=yike-dialy
+Exec=yike-dialy
+Icon=com.byteof.monment
+Type=Application
+Categories=Utility;
+EOF
+}
